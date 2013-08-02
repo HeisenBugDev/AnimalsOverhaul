@@ -2,9 +2,11 @@ package mods.ao.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 
-public class CornRenderer extends BaseBlockRenderer  {
+public class CornRenderer extends TileEntitySpecialRenderer {
 
     private static CornRenderer INSTANCE = new CornRenderer();
 
@@ -15,8 +17,7 @@ public class CornRenderer extends BaseBlockRenderer  {
     }
 
     @Override
-    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-        modelCornTop.render(x, y, z);
-        return true;
+    public void renderTileEntityAt(TileEntity tileentity, double d0, double d1, double d2, float f) {
+        modelCornTop.render(d0, d1, d2);
     }
 }

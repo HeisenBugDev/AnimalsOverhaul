@@ -1,8 +1,11 @@
 package mods.ao.blocks;
 
 import mods.ao.core.Config;
+import mods.ao.tiles.TileCorn;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockReed;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
@@ -27,6 +30,13 @@ public class BlockCorn extends BlockReed {
     @Override
     public  void updateTick(World par1World, int par2, int par3, int par4, Random par5Random){
         System.out.println("derp");
+    }
+
+    @Override
+    public TileEntity createTileEntity(World world, int metadata)
+    {
+        System.out.println("CREATING TE");
+        return new TileCorn();
     }
 
     @Override
@@ -55,10 +65,5 @@ public class BlockCorn extends BlockReed {
     public int idDropped(int par1, Random par2Random, int par3)
     {
         return Config.BlockCornID;
-    }
-
-    @Override
-    public int getRenderType(){
-        return CornRenderer.instance().getRenderId();
     }
 }

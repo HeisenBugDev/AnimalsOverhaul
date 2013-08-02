@@ -1,10 +1,12 @@
 package mods.ao.core;
 
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ao.blocks.BlockCorn;
 import mods.ao.blocks.BlockNest;
+import mods.ao.tiles.TileCorn;
 import net.minecraft.creativetab.CreativeTabs;
 import mods.ao.render.CornRenderer;
 
@@ -43,7 +45,7 @@ public class Loader {
     }
 
     public static void initRenderers() {
-        RenderingRegistry.registerBlockHandler(CornRenderer.instance());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileCorn.class, CornRenderer.instance());
 
     }
 
