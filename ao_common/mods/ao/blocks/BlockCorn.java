@@ -20,7 +20,7 @@ import java.util.Random;
  * Date: 8/2/13
  * Time: 12:12 PM
  */
-public class BlockCorn extends BlockReed {
+public class BlockCorn extends BlockReed implements ITileEntityProvider {
 
     public BlockCorn(int par1) {
         super(par1);
@@ -32,10 +32,9 @@ public class BlockCorn extends BlockReed {
         System.out.println("derp");
     }
 
-    @Override
-    public TileEntity createTileEntity(World world, int metadata)
+    public boolean renderAsNormalBlock()
     {
-        return new TileCorn();
+        return true;
     }
 
     @Override
@@ -64,5 +63,10 @@ public class BlockCorn extends BlockReed {
     public int idDropped(int par1, Random par2Random, int par3)
     {
         return Config.BlockCornID;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world) {
+        return new TileCorn();
     }
 }
