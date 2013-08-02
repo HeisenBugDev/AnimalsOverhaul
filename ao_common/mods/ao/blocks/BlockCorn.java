@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
+import render.CornRenderer;
 
 import java.util.Random;
 
@@ -55,5 +56,10 @@ public class BlockCorn extends BlockReed {
     public int idDropped(int par1, Random par2Random, int par3)
     {
         return Config.BlockCornID;
+    }
+
+    @Override
+    public int getRenderType(){
+        return CornRenderer.instance().getRenderId();
     }
 }

@@ -1,10 +1,13 @@
 package mods.ao.core;
 
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ao.blocks.BlockCorn;
 import mods.ao.blocks.BlockNest;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.MinecraftForgeClient;
+import render.CornRenderer;
 
 public class Loader {
 
@@ -41,6 +44,7 @@ public class Loader {
     }
 
     public static void initRenderers() {
+        RenderingRegistry.registerBlockHandler(CornRenderer.instance());
 
     }
 
