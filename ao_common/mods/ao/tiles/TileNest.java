@@ -7,18 +7,25 @@ import net.minecraft.tileentity.TileEntity;
 public class TileNest extends TileEntity {
 
     private Egg[] eggs;
-    private boolean hasChicken;
+    private boolean isChickenOnTop;
 
     public TileNest() {
         this.eggs = new Egg[16];
     }
-
+    int i;
     @Override
     public void updateEntity() {
-        if (!hasChicken)
-        for (Egg e : eggs) {
-            e.tick();
+        //worldObj.entity
+        if (!isChickenOnTop) {
+            i++;
+            if (i == 24000) {
+                 for (Egg e : eggs) {
+                    e.tick();
+                }
+                i = 0;
+            }
         }
+
     }
 
     @Override
