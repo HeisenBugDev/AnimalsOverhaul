@@ -34,8 +34,17 @@ public class BlockCorn extends BlockReed implements ITileEntityProvider {
 
     public boolean renderAsNormalBlock()
     {
-        return true;
+        return false;
     }
+
+    /**
+     * The type of render function that is called for this block
+     */
+    public int getRenderType()
+    {
+        return -1;
+    }
+
 
     @Override
     public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4) {

@@ -2,6 +2,7 @@ package mods.ao.render;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 import org.lwjgl.opengl.GL11;
@@ -32,7 +33,7 @@ public class ModelCornTop extends ModelBase
         GL11.glScalef(1/16f, 1/16f, 1/16f);
 
         // Bind the texture, so that OpenGL properly textures our block.
-        //FMLClientHandler.instance().getClient().renderEngine.bindTexture("/mods/OBJTutorial/textures/models/TutBox.png");
+        FMLClientHandler.instance().getClient().renderEngine.func_110577_a(new ResourceLocation("ao", "textures/models/test.png"));
 
         // Render the object, using modelTutBox.renderAll();
         this.render();
