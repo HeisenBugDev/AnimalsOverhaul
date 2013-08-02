@@ -35,9 +35,11 @@ public class BlockCorn extends BlockReed {
     @Override
     public TileEntity createTileEntity(World world, int metadata)
     {
-        //THIS DOESNT GET CALLED o.O
-        System.out.println("CREATING TE");
-        return new TileCorn();
+        if (isTileProvider)
+        {
+            return ((ITileEntityProvider)this).createNewTileEntity(world);
+        }
+        return null;
     }
 
     @Override

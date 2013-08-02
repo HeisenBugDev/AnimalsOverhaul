@@ -50,7 +50,7 @@ public class Loader {
     }
 
     public static void initTEs() {
-
+        GameRegistry.registerTileEntity(TileCorn.class, "TECorn");
     }
 
 }
