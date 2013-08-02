@@ -2,15 +2,15 @@ package mods.ao.core;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import mods.ao.blocks.BlockCorn;
 import mods.ao.blocks.BlockNest;
-import net.minecraft.client.resources.Language;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class Loader {
 
     public static CreativeTabs tab_ao;
-
     public static BlockNest BlockNest;
+    public static BlockCorn BlockCorn;
 
     public static void initAll() {
         initTabs();
@@ -33,6 +33,11 @@ public class Loader {
                 .setCreativeTab(tab_ao).func_111022_d(Config.getTextureName(Config.NameBlockNest));
         GameRegistry.registerBlock(BlockNest, Config.NameBlockNest);
         LanguageRegistry.addName(BlockNest, "Nest");
+
+        BlockCorn = (BlockCorn) new BlockCorn(Config.BlockCornID).setUnlocalizedName(Config.NameBlockCorn)
+                .setCreativeTab(tab_ao).func_111022_d(Config.getTextureName(Config.NameBlockCorn));
+        GameRegistry.registerBlock(BlockCorn,Config.NameBlockCorn);
+        LanguageRegistry.addName(BlockCorn,"Corn");
     }
 
     public static void initRenderers() {

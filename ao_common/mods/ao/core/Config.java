@@ -8,8 +8,10 @@ import java.io.File;
 public class Config {
 
     public static String NameBlockNest = "blockNest";
+    public static String NameBlockCorn = "blockCorn";
 
     public static int BlockNestID;
+    public static int BlockCornID;
 
     public static String getTextureName(String name) {
         return "ao:" + name;
@@ -28,6 +30,7 @@ public class Config {
         config.load();
 
         BlockNestID = config.get("Blocks", "BlockNest", 3525).getInt();
+        BlockCornID = config.get("Block", "BlockCorn", 3526).getInt();
 
         //add stuff here
 
