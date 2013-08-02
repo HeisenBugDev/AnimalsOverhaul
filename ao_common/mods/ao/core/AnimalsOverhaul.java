@@ -14,7 +14,7 @@ public class AnimalsOverhaul {
 
     @SidedProxy(clientSide = "mods.ao.core.ClientProxy", serverSide = "mods.ao.core.CommonProxy")
     public static ClientProxy proxy;
-    @Mod.Instance("QuantumCraft")
+    @Mod.Instance("AnimalsOverhaul")
     public static AnimalsOverhaul instance;
 
     @Mod.EventHandler
