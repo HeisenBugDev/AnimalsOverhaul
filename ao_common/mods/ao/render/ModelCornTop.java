@@ -1,4 +1,4 @@
-package render;
+package mods.ao.render;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.model.ModelBase;

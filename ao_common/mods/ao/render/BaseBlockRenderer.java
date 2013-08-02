@@ -1,4 +1,4 @@
-package render;
+package mods.ao.render;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;

@@ -1,4 +1,4 @@
-package render;
+package mods.ao.render;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;

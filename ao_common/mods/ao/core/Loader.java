@@ -6,8 +6,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ao.blocks.BlockCorn;
 import mods.ao.blocks.BlockNest;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.client.MinecraftForgeClient;
-import render.CornRenderer;
+import mods.ao.render.CornRenderer;
 
 public class Loader {
 

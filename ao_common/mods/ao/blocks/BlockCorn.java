@@ -3,12 +3,11 @@ package mods.ao.blocks;
 import mods.ao.core.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockReed;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
-import render.CornRenderer;
+import mods.ao.render.CornRenderer;
 
 import java.util.Random;
 
