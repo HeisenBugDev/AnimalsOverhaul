@@ -1,11 +1,15 @@
 package mods.ao.blocks;
 
+import mods.ao.core.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockReed;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
+
+import java.util.Random;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,6 +21,12 @@ public class BlockCorn extends BlockReed {
 
     public BlockCorn(int par1) {
         super(par1);
+        setTickRandomly(false);
+    }
+
+    @Override
+    public  void updateTick(World par1World, int par2, int par3, int par4, Random par5Random){
+        System.out.println("derp");
     }
 
     @Override
@@ -41,5 +51,9 @@ public class BlockCorn extends BlockReed {
     @Override
     public int getPlantID(World world, int x, int y, int z) {
         return blockID;
+    }
+    public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return Config.BlockCornID;
     }
 }
