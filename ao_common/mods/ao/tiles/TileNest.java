@@ -1,4 +1,4 @@
-package tiles;
+package mods.ao.tiles;
 
 import mods.ao.objects.Egg;
 import net.minecraft.nbt.NBTTagCompound;
@@ -23,7 +23,7 @@ public class TileNest extends TileEntity {
     public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     {
         for (int i = 0; i < 16; i++) {
-            eggs[i].readFromNBT(par1NBTTagCompound);
+            eggs[i].readFromNBT(par1NBTTagCompound.getCompoundTag("eggs").getCompoundTag("egg_" + i));
         }
         super.readFromNBT(par1NBTTagCompound);
     }
@@ -31,6 +31,9 @@ public class TileNest extends TileEntity {
     @Override
     public void writeToNBT(NBTTagCompound par1NBTTagCompound)
     {
+        for (int i = 0; i < 16; i++) {
+            eggs[i].writeToNBT(par1NBTTagCompound.getCompoundTag("eggs").getCompoundTag("egg_" + i));
+        }
         super.writeToNBT(par1NBTTagCompound);
     }
 
