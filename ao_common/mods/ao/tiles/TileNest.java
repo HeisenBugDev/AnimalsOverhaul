@@ -7,6 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 public class TileNest extends TileEntity {
 
     private Egg[] eggs;
+    private boolean hasChicken;
 
     public TileNest() {
         this.eggs = new Egg[16];
@@ -14,6 +15,7 @@ public class TileNest extends TileEntity {
 
     @Override
     public void updateEntity() {
+        if (!hasChicken)
         for (Egg e : eggs) {
             e.tick();
         }
