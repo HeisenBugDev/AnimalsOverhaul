@@ -8,14 +8,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(modid = "AnimalsOverhaul", name = "Animals Overhaul", version = "@VERSION@")
+@Mod(modid = "AnimalOverhaul", name = "Animal Overhaul", version = "@VERSION@")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
-public class AnimalsOverhaul {
+public class AnimalOverhaul {
 
     @SidedProxy(clientSide = "mods.ao.core.ClientProxy", serverSide = "mods.ao.core.CommonProxy")
     public static ClientProxy proxy;
     @Mod.Instance("AnimalsOverhaul")
-    public static AnimalsOverhaul instance;
+    public static AnimalOverhaul instance;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
