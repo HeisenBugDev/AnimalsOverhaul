@@ -35,11 +35,7 @@ public class BlockCorn extends BlockReed {
     @Override
     public TileEntity createTileEntity(World world, int metadata)
     {
-        if (isTileProvider)
-        {
-            return ((ITileEntityProvider)this).createNewTileEntity(world);
-        }
-        return null;
+        return new TileCorn();
     }
 
     @Override
