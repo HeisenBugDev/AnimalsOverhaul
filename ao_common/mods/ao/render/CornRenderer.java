@@ -20,6 +20,7 @@ public class CornRenderer extends TileEntitySpecialRenderer {
 
     @Override
     public void renderTileEntityAt(TileEntity tileentity, double d0, double d1, double d2, float f) {
+        //This works fine
         modelCornRod.render(d0, d1, d2);
         if (((TileCorn)tileentity).hadCob()) {
             modelCornSide.render(d0, d1, d2, 0);

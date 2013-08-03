@@ -13,7 +13,7 @@ import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
 
-public class BlockCorn extends BlockReed implements ITileEntityProvider {
+public class BlockCorn extends BlockReed implements ITileEntityProvider { //cant extend BlockContainer
 
     public BlockCorn(int par1) {
         super(par1);
@@ -29,8 +29,9 @@ public class BlockCorn extends BlockReed implements ITileEntityProvider {
 
     @Override
     public  void updateTick(World par1World, int par2, int par3, int par4, Random par5Random){
+        super.updateTick(par1World, par2, par3,par4, par5Random);
         System.out.println("tick");
-        ((TileCorn)par1World.getBlockTileEntity(par2, par3, par4)).growCob(par5Random);
+        ((TileCorn)par1World.getBlockTileEntity(par2, par3, par4)).updateTick(par5Random);
     }
 
     @Override
