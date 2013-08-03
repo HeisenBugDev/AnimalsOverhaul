@@ -26,7 +26,6 @@ public class CornRenderer extends TileEntitySpecialRenderer {
         }
         if (((TileCorn)tileentity).hasCob()) {
             modelCornCob.render(d0,d1,d2);
-            System.out.println("COB");
         }
     }
 }

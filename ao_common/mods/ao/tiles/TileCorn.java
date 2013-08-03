@@ -27,7 +27,8 @@ public class TileCorn extends TileEntity {
     }
 
     public void rightClick(EntityPlayer p) {
-        this.hasCob = false;
+        this.hadCob = true;      //FORCE GROW COB ON RCLICK  (DEBUG        )
+        this.hasCob = true;
         //IF HAD COB DROP THE COB / PUT INTO PLAYERS INVENTORY
     }
 
