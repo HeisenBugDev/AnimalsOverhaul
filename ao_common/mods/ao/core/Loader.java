@@ -7,6 +7,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ao.blocks.BlockCorn;
 import mods.ao.blocks.BlockNest;
 import mods.ao.tiles.TileCorn;
+import mods.ao.tiles.TileNest;
 import net.minecraft.creativetab.CreativeTabs;
 import mods.ao.render.CornRenderer;
 
@@ -50,6 +51,7 @@ public class Loader {
     }
 
     public static void initTEs() {
+        GameRegistry.registerTileEntity(TileNest.class, "TENest");
         GameRegistry.registerTileEntity(TileCorn.class, "TECorn");
     }
 
