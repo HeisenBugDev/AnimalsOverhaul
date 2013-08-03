@@ -1,4 +1,4 @@
-package mods.ao.render;
+package mods.ao.render.models;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.model.ModelBase;
@@ -7,27 +7,30 @@ import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 import org.lwjgl.opengl.GL11;
 
-public class ModelCornBottom extends ModelBase {
-    private IModelCustom modelCornBottom;
+public class ModelCornSide extends ModelBase {
+    private IModelCustom modelCornSide;
 
 
-    public ModelCornBottom() {
-        modelCornBottom = AdvancedModelLoader.loadModel("/assets/ao/models/corn_bottom.obj");
+    public ModelCornSide() {
+        modelCornSide = AdvancedModelLoader.loadModel("/assets/ao/models/corn/side.obj");
     }
 
     private void render() {
-        modelCornBottom.renderAll();
+        modelCornSide.renderAll();
     }
 
-    public void render(double x, double y, double z) {
+    public void render(double x, double y, double z, float angle) {
         // Push a blank matrix onto the stack
         GL11.glPushMatrix();
 
         // Move the object into the correct position on the block (because the OBJ's origin is the center of the object)
-        GL11.glTranslatef((float) x + 0.5f, (float) y, (float) z + 0.5f);
+        GL11.glTranslatef((float) x + 0.5f - 0.25f, (float) y + 0.1f, (float) z + 0.5f);
 
         // Scale our object to about half-size in all directions (the OBJ file is a little large)
         GL11.glScalef(1 / 16f, 1 / 16f, 1 / 16f);
+
+        //Rotate object
+        GL11.glRotatef((float) x + 0.5f, (float) y + 0.1f, (float) z + 0.5f, 90);
 
         // Bind the texture, so that OpenGL properly textures our block.
         FMLClientHandler.instance().getClient().renderEngine

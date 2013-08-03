@@ -1,35 +1,42 @@
 package mods.ao.blocks;
 
-import mods.ao.core.Config;
 import mods.ao.tiles.TileCorn;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockReed;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
-import mods.ao.render.CornRenderer;
 
 import java.util.Random;
 
-/**
- * Created with IntelliJ IDEA.
- * User: theron
- * Date: 8/2/13
- * Time: 12:12 PM
- */
 public class BlockCorn extends BlockReed implements ITileEntityProvider {
 
     public BlockCorn(int par1) {
         super(par1);
-        setTickRandomly(false);
+        setTickRandomly(true);
+    }
+
+    @Override
+    public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
+    {
+        ((TileCorn)par1World.getBlockTileEntity(par2, par3, par4)).rightClick(par5EntityPlayer);
+        return true;
     }
 
     @Override
     public  void updateTick(World par1World, int par2, int par3, int par4, Random par5Random){
-        System.out.println("derp");
+        System.out.println("tick");
+        ((TileCorn)par1World.getBlockTileEntity(par2, par3, par4)).growCob(par5Random);
+    }
+
+    @Override
+    public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
+        if (par1World.getBlockTileEntity(par2, par3, par4) == null) { System.out.println("This is getting called twice -.-"); return ; }
+        ((TileCorn)par1World.getBlockTileEntity(par2, par3, par4)).onDestroyed();
     }
 
     public boolean renderAsNormalBlock()
@@ -71,7 +78,7 @@ public class BlockCorn extends BlockReed implements ITileEntityProvider {
     }
     public int idDropped(int par1, Random par2Random, int par3)
     {
-        return Config.BlockCornID;
+        return 0;
     }
 
     @Override
