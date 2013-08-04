@@ -6,6 +6,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import mods.ao.blocks.BlockCorn;
 import mods.ao.blocks.BlockNest;
+import mods.ao.render.NestRenderer;
 import mods.ao.tiles.TileCorn;
 import mods.ao.tiles.TileNest;
 import net.minecraft.creativetab.CreativeTabs;
@@ -46,6 +47,7 @@ public class Loader {
     }
 
     public static void initRenderers() {
+        ClientRegistry.bindTileEntitySpecialRenderer(TileNest.class, NestRenderer.instance());
         ClientRegistry.bindTileEntitySpecialRenderer(TileCorn.class, CornRenderer.instance());
 
     }

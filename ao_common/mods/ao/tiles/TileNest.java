@@ -92,9 +92,13 @@ public class TileNest extends TileEntity {
     public void writeToNBT(NBTTagCompound par1NBTTagCompound)
     {
         if (eggs == null) {eggs = new Egg[16];}
+        NBTTagCompound t = new NBTTagCompound("eggs");
         for (int i = 0; i < 16; i++) {
-            eggs[i].writeToNBT(par1NBTTagCompound.getCompoundTag("eggs").getCompoundTag("egg_" + i));
+            NBTTagCompound t2 = new NBTTagCompound("egg_" + i);
+            eggs[i].writeToNBT(t2);
+            t.setCompoundTag("egg_" + i, t2);
         }
+        par1NBTTagCompound.setCompoundTag("eggs", t);
         super.writeToNBT(par1NBTTagCompound);
     }
 

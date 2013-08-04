@@ -29,6 +29,20 @@ public class BlockNest extends BlockContainer {
         return true;
     }
 
+
+    public boolean renderAsNormalBlock()
+    {
+        return false;
+    }
+
+    /**
+     * The type of render function that is called for this block
+     */
+    public int getRenderType()
+    {
+        return -1;
+    }
+
     @Override
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
         if (par1World.getBlockTileEntity(par2, par3, par4) == null) { System.out.println("This is getting called twice -.-"); return ; }
